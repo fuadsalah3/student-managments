@@ -4,8 +4,8 @@ const cors = require('cors');
 const studentRoutes = require('./routes/students');
 
 const app = express();
-const PORT = 5050;
-const MONGO_URI = 'mongodb://10.143.90.217:27017/4040';
+const PORT = process.env.PORT || 5050;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/student_management';
 
 app.use(cors());
 app.use(express.json());
@@ -16,6 +16,10 @@ mongoose.connect(MONGO_URI)
 
 app.use('/api/students', studentRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;

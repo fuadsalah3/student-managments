@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply m-0 bg-luxury-black text-luxury-text-primary font-sans antialiased;
+  }
+
+  * {
+    @apply border-luxury-border;
+  }
+
+  ::selection {
+    @apply bg-luxury-gold/20 text-luxury-gold;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-luxury-border rounded-full hover:bg-luxury-border-light;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/[0.03] backdrop-blur-[20px] border border-white/[0.06] rounded-xl;
+  }
+
+  .glass-panel-hover {
+    @apply bg-white/[0.03] backdrop-blur-[20px] border border-white/[0.06] rounded-xl
+           hover:bg-white/[0.05] hover:border-white/[0.1] transition-all duration-300;
+  }
+
+  .btn-gold {
+    @apply px-5 py-2.5 bg-luxury-gold text-luxury-black font-semibold
+           tracking-luxury rounded-lg border-none cursor-pointer
+           hover:bg-luxury-gold-light active:bg-luxury-gold-dark
+           transition-all duration-200 text-sm;
+  }
+
+  .btn-ghost {
+    @apply px-5 py-2.5 bg-transparent text-luxury-text-secondary font-medium
+           tracking-luxury rounded-lg border border-white/[0.08] cursor-pointer
+           hover:bg-white/[0.05] hover:text-luxury-text-primary
+           transition-all duration-200 text-sm;
+  }
+
+  .btn-edit {
+    @apply px-3 py-1.5 bg-luxury-gold/10 text-luxury-gold font-medium
+           tracking-luxury rounded-md border border-luxury-gold/20 cursor-pointer
+           hover:bg-luxury-gold/20 transition-all duration-200 text-xs;
+  }
+
+  .btn-delete {
+    @apply px-3 py-1.5 bg-luxury-red/15 text-luxury-red-light font-medium
+           tracking-luxury rounded-md border border-luxury-red/30 cursor-pointer
+           hover:bg-luxury-red/25 transition-all duration-200 text-xs;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-white/[0.03] border border-white/[0.08] rounded-lg
+           text-luxury-text-primary placeholder-luxury-text-muted
+           tracking-luxury text-sm outline-none
+           focus:border-luxury-gold/50 focus:bg-white/[0.05]
+           transition-all duration-200;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-luxury-gold via-luxury-gold-light to-luxury-gold;
+  }
+}
